@@ -87,3 +87,8 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+*.en
+*.ja
+*.tar.gz
+.gitkeep
