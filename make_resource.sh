@@ -3,10 +3,17 @@
 ROOT=$(cd $(dirname $0);pwd)
 SCRIPT_DIR=${ROOT}/script
 
-if [ -e ${ROOT}/resource/kftt-data-1.0 ]; then
-    echo "Original kftt has been downloaded"
+if [ -e ${ROOT}/corpus/baseline -a -e ${ROOT}/corpus/nc_corpus ]; then
+    echo "Corpus extracting has been done."
 else
-    echo "Start downloading original kftt corpus"
+    echo "Start to extract."
+    tar xvf ${ROOT}/corpus/corpora.tar.bz2 -C ${ROOT}/corpus
+fi
+
+if [ -e ${ROOT}/resource/kftt-data-1.0 ]; then
+    echo "Original kftt has been downloaded."
+else
+    echo "Start downloading original kftt corpus."
     wget http://www.phontron.com/kftt/download/kftt-data-1.0.tar.gz -P resource
 fi
 
