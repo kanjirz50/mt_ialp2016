@@ -3,6 +3,13 @@
 ROOT=$(cd $(dirname $0);pwd)
 SCRIPT_DIR=${ROOT}/script
 
+if [ -e ${ROOT}/corpus/corpora.tar.bz2 ]; then
+    echo "Normalized corpus has been downloaded."
+else
+    echo "Start to download."
+    wget -O ${ROOT}/corpus/ "https://www.dropbox.com/s/rj1nfns35hvnf2d/corpora.tar.bz2"
+fi
+
 if [ -e ${ROOT}/corpus/baseline -a -e ${ROOT}/corpus/nc_corpus ]; then
     echo "Corpus extracting has been done."
 else
