@@ -5,10 +5,10 @@ This repository contains
 - KFTT dataset for investigating an effect of normalizing Japanese orthographical variants
 - Preprocessing and Post-processsing scripts for cleaning KFTT and NTCIR-7 corpora.
 
-Preprocessing scripts for SMT research(will be published in IALP2016)
+Preprocessing scripts for SMT research.
 These scripts is apllied for a research(Japanese Orthographical Normalization Do Not Work for Statistical Machine Translation).
 
-These scripts make parallel corpus clear for Statistical Machine Translation research.
+These scripts make a parallel corpus clear for Statistical Machine Translation research.
 Target corpora are KFTT(The Kyoto Free Translation Task) and NTCIR-7(Pattent corpus).
 
 # Usage
@@ -19,17 +19,26 @@ Target corpora are KFTT(The Kyoto Free Translation Task) and NTCIR-7(Pattent cor
 git clone https://github.com/kanjirz50/mt_ialp2016.git
 cd mt_ialp2016
 ./make_corpus.sh
+# A lot of files will be downloaded.
 ```
 
-## Training using Moses
+## Training and Translation using Moses
 Moses is required to run a training scripts.
+Before runnnig script, please install Moses and check the path.
 
 ```sh
 # after running "make_corpus.sh"
 cd ex_script
-bash ex_baseline_E2J.sh
+bash ex_baseline_E2J.sh /tools/src/mosesdecoder 4 8
+# arg 1: Moses directory
+# arg 2: Theread number
+# arg 3: Memory(GB)
 # Training and translation will start
 ```
+
+Then, `work` directory will be created.
+A translation system and a translated text will be created under the directory.
+
 
 ## Post-processing
 
