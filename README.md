@@ -40,6 +40,14 @@ Then, `work` directory will be created.
 A translation system and a translated text will be created under the directory.
 
 
+## Pre-Processing
+
+`script/ja_prepro.pl` deletes Japanese name era and yomigana.
+(Yomigana is Japanese writing system for showing how to pronounce a word.)
+
+`script/en_prepro/pl` lowercases all alphabetic characters.
+
+
 ## Post-processing
 
 `script/ja_postpro.pl` is a post processing-script for chunking numeric representations.
